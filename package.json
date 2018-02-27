@@ -6,7 +6,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "commander": "^2.14.1",
-    "inquirer": "^5.1.0",
+    "inquirer": "^5.1.0"
   },
   "author": "Sheng"
 }

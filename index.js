@@ -41,7 +41,7 @@ program
       if (answers.updateIssues === true) {
         axios.get(`https://api.github.com/repos/Shenglian/WORK_TIP/issues?per_page=${per_page}`)
         .then(response => {
-          fs.writeFile('issues.json', JSON.stringify(response.data), function (err) {
+          fs.writeFile(`${__dirname}/issues.json`, JSON.stringify(response.data), function (err) {
             issuesList({
               'num': answers.displayIssueNums
             });
@@ -62,7 +62,7 @@ program.parse(process.argv)
 
 function issuesList({num = per_page}) {
   try {
-    const objs = JSON.parse(fs.readFileSync('./issues.json', 'utf8'));
+    const objs = JSON.parse(fs.readFileSync(`${__dirname}/issues.json`, 'utf8'));
     objs
       .splice(0, num)
       .map(obj => {
